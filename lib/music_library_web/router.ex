@@ -20,7 +20,13 @@ defmodule MusicLibraryWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", MusicLibraryWeb do
-  #   pipe_through :api
-  # end
+   scope "/api", MusicLibraryWeb do
+     pipe_through :api
+
+     get "/settings", SettingController, :index
+     resources "/artists", ArtistController, except: [:new, :edit]
+     resources "/albums", AlbumController, except: [:new, :edit]
+     resources "/tracks", TrackController, except: [:new, :edit]
+     resources "/notes", NoteController, except: [:new, :edit]
+   end
 end
