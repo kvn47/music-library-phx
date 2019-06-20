@@ -3,6 +3,7 @@ defmodule MusicLibrary.Notes.Note do
   import Ecto.Changeset
 
   schema "notes" do
+    field :position, :integer
     field :album, :string
     field :artist, :string
     field :details, :string
@@ -17,7 +18,7 @@ defmodule MusicLibrary.Notes.Note do
   @doc false
   def changeset(note, attrs) do
     note
-    |> cast(attrs, [:kind, :artist, :album, :details, :release_date, :download_url, :download_path])
+    |> cast(attrs, [:position, :kind, :artist, :album, :details, :release_date, :download_url, :download_path])
     |> validate_required([:kind])
   end
 end

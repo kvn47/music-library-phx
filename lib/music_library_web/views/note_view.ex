@@ -13,6 +13,7 @@ defmodule MusicLibraryWeb.NoteView do
   def render("note.json", %{note: note}) do
     %{id: note.id,
       kind: note.kind,
+      position: note.position,
       artist: note.artist,
       album: note.album,
       details: note.details,

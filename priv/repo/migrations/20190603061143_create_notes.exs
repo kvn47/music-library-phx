@@ -3,6 +3,7 @@ defmodule MusicLibrary.Repo.Migrations.CreateNotes do
 
   def change do
     create table(:notes) do
+      add :position, :integer
       add :kind, :string
       add :artist, :string
       add :album, :string
