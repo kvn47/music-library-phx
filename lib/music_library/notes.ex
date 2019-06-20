@@ -17,12 +17,16 @@ defmodule MusicLibrary.Notes do
       [%Note{}, ...]
 
   """
-  def list_notes do
-    Repo.all(Note)
-  end
-
   def list_notes(%{"kind" => kind}) do
     Repo.all(from Note, where: [kind: ^kind])
+  end
+
+  def list_notes(%{"search" => query}) do
+    Repo.all(from note in Note, where: ilike(note.artist, "%#{^query}%") or ilike(note.album, "%#{^query}%"))
+  end
+
+  def list_notes(%{}) do
+    Repo.all(from note in Note, where: note.kind == "await" and note.release_date <= ^Date.utc_today())
   end
 
   @doc """
