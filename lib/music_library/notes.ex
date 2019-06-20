@@ -21,6 +21,10 @@ defmodule MusicLibrary.Notes do
     Repo.all(Note)
   end
 
+  def list_notes(%{"kind" => kind}) do
+    Repo.all(from Note, where: [kind: ^kind])
+  end
+
   @doc """
   Gets a single note.
 

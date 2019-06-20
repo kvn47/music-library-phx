@@ -6,8 +6,8 @@ defmodule MusicLibraryWeb.NoteController do
 
   action_fallback MusicLibraryWeb.FallbackController
 
-  def index(conn, _params) do
-    notes = Notes.list_notes()
+  def index(conn, params) do
+    notes = Notes.list_notes(params)
     render(conn, "index.json", notes: notes)
   end
 
