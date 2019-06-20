@@ -22,7 +22,7 @@ defmodule MusicLibrary.Notes do
   end
 
   def list_notes(%{"search" => query}) do
-    Repo.all(from note in Note, where: ilike(note.artist, "%#{^query}%") or ilike(note.album, "%#{^query}%"))
+    Repo.all(from note in Note, where: ilike(note.artist, "%^query%") or ilike(note.album, "%^query"))
   end
 
   def list_notes(%{}) do
