@@ -13,11 +13,11 @@ defmodule MusicLibraryWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", MusicLibraryWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
+#  scope "/", MusicLibraryWeb do
+#    pipe_through :browser
+#
+#    get "/", PageController, :index
+#  end
 
   # Other scopes may use custom stacks.
    scope "/api", MusicLibraryWeb do
