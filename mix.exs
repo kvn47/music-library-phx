@@ -45,6 +45,7 @@ defmodule MusicLibrary.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:arc, "~> 0.11.0"},
       {:arc_ecto, "~> 0.11.0"},
+      {:cors_plug, "~> 2.0"},
       {:distillery, "~> 2.0"}
     ]
   end

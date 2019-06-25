@@ -42,5 +42,7 @@ defmodule MusicLibraryWeb.Endpoint do
     key: "_music_library_key",
     signing_salt: "G0fltMXD"
 
+#  plug CORSPlug, origin: ["https://music-library-47.web.app", "https://music-library-47.firebaseapp.com"]
+  plug CORSPlug
   plug MusicLibraryWeb.Router
 end

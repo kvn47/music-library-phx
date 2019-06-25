@@ -10,6 +10,7 @@ defmodule MusicLibraryWeb.Router do
   end
 
   pipeline :api do
+#    plug CORSPlug, origin: []
     plug :accepts, ["json"]
   end
 
@@ -21,6 +22,7 @@ defmodule MusicLibraryWeb.Router do
     resources "/albums", AlbumController, except: [:new, :edit]
     resources "/tracks", TrackController, except: [:new, :edit]
     resources "/notes", NoteController, except: [:new, :edit]
+#    options "/notes", NoteController, :options
   end
 
   scope "/", MusicLibraryWeb do
