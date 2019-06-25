@@ -13,20 +13,19 @@ defmodule MusicLibraryWeb.Router do
     plug :accepts, ["json"]
   end
 
-#  scope "/", MusicLibraryWeb do
-#    pipe_through :browser
-#
-#    get "/", PageController, :index
-#  end
+  scope "/api", MusicLibraryWeb do
+    pipe_through :api
 
-  # Other scopes may use custom stacks.
-   scope "/api", MusicLibraryWeb do
-     pipe_through :api
+    get "/settings", SettingController, :index
+    resources "/artists", ArtistController, except: [:new, :edit]
+    resources "/albums", AlbumController, except: [:new, :edit]
+    resources "/tracks", TrackController, except: [:new, :edit]
+    resources "/notes", NoteController, except: [:new, :edit]
+  end
 
-     get "/settings", SettingController, :index
-     resources "/artists", ArtistController, except: [:new, :edit]
-     resources "/albums", AlbumController, except: [:new, :edit]
-     resources "/tracks", TrackController, except: [:new, :edit]
-     resources "/notes", NoteController, except: [:new, :edit]
-   end
+  scope "/", MusicLibraryWeb do
+    pipe_through :browser
+
+    forward "/", Plugs.Static
+  end
 end
