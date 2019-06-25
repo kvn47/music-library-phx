@@ -11,9 +11,9 @@ use Mix.Config
 # before starting your production server.
 config :music_library, MusicLibraryWeb.Endpoint,
   url: [host: "${APP_NAME}.gigalixirapp.com", port: 443],
-  cache_static_manifest: "priv/static/cache_manifest.json",
+#  cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
-  root: "./static"
+  root: "./priv/pwa"
 
 # Do not print debug messages in production
 config :logger, level: :info
